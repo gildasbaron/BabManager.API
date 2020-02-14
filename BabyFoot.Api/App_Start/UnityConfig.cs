@@ -15,6 +15,14 @@ namespace BabyFoot.Api
 
         public static void RegisterComponents()
         {
+            Container = new UnityContainer();
+            Container.RegisterType<ILogger, Logger>(new HierarchicalLifetimeManager());
+            Container.RegisterType<IRequestContextInfo, RequestContextInfo>(new HierarchicalLifetimeManager());
+            Container.RegisterType<IApplicationContext, ApplicationContext>(new ContainerControlledLifetimeManager());
+
+            RegisterAllRegistrationServices();
+
+            GlobalConfiguration.Configuration.DependencyResolver = new UnityResolver(Container);
         }
 
         private static void RegisterAllRegistrationServices()

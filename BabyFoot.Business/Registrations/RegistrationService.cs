@@ -9,7 +9,7 @@ namespace BabyFoot.Business.Registrations
     {
         public void Register(IUnityContainer container)
         {
-         
+            container.RegisterType<IGameService, GameService>(new HierarchicalLifetimeManager());
         }
     }
 }
