@@ -8,7 +8,6 @@ namespace BabyFoot.Common.Registrations
     {
         public void Register(IUnityContainer container)
         {
-         //   container.RegisterType<ILogger, Logger>();
         }
     }
 }

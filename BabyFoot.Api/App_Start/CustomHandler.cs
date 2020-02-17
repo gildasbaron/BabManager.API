@@ -12,8 +12,8 @@ namespace BabyFoot.Api
             HttpRequestMessage request,
             CancellationToken cancellationToken)
         {
-            var notIdentifiedUser = 
-                string.IsNullOrEmpty(request.GetRequestContext().Principal.Identity.Name) 
+            var notIdentifiedUser =
+                string.IsNullOrEmpty(request.GetRequestContext().Principal.Identity.Name)
                     ? "not_identified_user_" + DateTime.Now.Ticks
                     : request.GetRequestContext().Principal.Identity.Name;
 
@@ -22,7 +22,7 @@ namespace BabyFoot.Api
             var applicationContext = (IApplicationContext)scope.GetService(typeof(IApplicationContext));
 
             applicationContext.IncrementCounter();
-           
+
             requestContext.RequestId = $"request{applicationContext.RequestCounter}";
             requestContext.User = notIdentifiedUser;
 

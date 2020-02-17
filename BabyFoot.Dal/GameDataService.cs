@@ -1,17 +1,14 @@
-﻿using BabyFoot.Common.Context;
-using BabyFoot.Common.Log;
+﻿using BabyFoot.Common.Log;
 using BabyFoot.Dal.Contract;
 
 namespace BabyFoot.Dal
 {
     public class GameDataService : IGameDataService
     {
-        private readonly IRequestContextInfo _requestContextInfo;
         private readonly ILogger _logger;
 
-        public GameDataService(IRequestContextInfo requestContextInfo, ILogger logger)
+        public GameDataService(ILogger logger)
         {
-            this._requestContextInfo = requestContextInfo;
             _logger = logger;
         }
 

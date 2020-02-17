@@ -15,12 +15,11 @@ namespace BabyFoot.Api.Controllers
             this._logger = logger;
         }
 
-        [HttpPost]
+        [HttpGet]
         [Route("api/Game/{name}")]
         public void CreateNewGame([FromUri]string name)
         {
             _logger.Log($"api/Game/{name}");
-
             _gameService.CreateGame(name);
         }
 
